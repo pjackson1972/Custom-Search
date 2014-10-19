@@ -12,7 +12,7 @@
  * 
  * @category ic-custom-search
  * @author: Patrick Jackson <patrick@ivycat.com>
- * @version: 1.0.1
+ * @version: 1.1.1
  * 
  */
 

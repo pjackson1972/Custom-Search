@@ -6,8 +6,8 @@
  * 
  * @category ic-custom-search
  * @author: Patrick Jackson <patrick@ivycat.com>
- * @version: 1.0.0
- * @since 1.0.0
+ * @version: 1.1.0
+ * @since 1.1.1
  * 
  */
 
@@ -219,6 +219,8 @@ EOH;
     /**
      * 
      * Retrieve the path to the search results template.
+     * By default, look in the child and parent theme directories, but look in
+     * a subdirectory named "/custom-search-templates/".
      * 
      * 1. if template attribute is populated, look for it in child theme directory
      * 2. otherwise, look for it in the parent theme directory
@@ -232,10 +234,12 @@ EOH;
      * @return  string  the template directory to be used
      * 
      * @author: Patrick Jackson <patrick@ivycat.com>
-     * @version 1.0.0
-     * @since   1.0.0
+     * @version 1.1.0
+     * @since   1.1.0
      */
     static private function get_template( $template_attribute, $default_file_name ){
+        
+        $default_subdirectory = "/custom-search-templates";
                         
         // if there was a template specified, look for it in child and parent dirs
         if ( $template_attribute != '' ){
@@ -258,12 +262,14 @@ EOH;
         // otherwise, look for default template name in child and parent dirs   
         } else {
             
-            $template = get_stylesheet_directory() . $default_file_name;
+            $template = get_stylesheet_directory() . $default_subdirectory 
+                    . $default_file_name;
             if ( file_exists($template) ){
                 return $template;
             }
             
-            $template = get_template_directory() . $default_file_name;
+            $template = get_template_directory() . $default_subdirectory
+                    . $default_file_name;
             if ( file_exists($template) ){
                 return $template;
             }
