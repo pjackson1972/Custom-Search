@@ -1,13 +1,13 @@
 <?php
 /**
  * 
- * Default template for displaying a single search result
+ * Default template that displays after the custom search results
  * 
  * 
  * @category ic-custom-search
  * @author: Patrick Jackson <patrick@ivycat.com>
- * @version: 1.0.0
- * @since 1.0.0
+ * @version: 1.0.1
+ * @since 1.0.1
  * 
  * @TODO Create a nice default template
  * 
