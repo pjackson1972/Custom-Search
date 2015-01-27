@@ -6,8 +6,8 @@
  * 
  * @category ic-custom-search
  * @author: Patrick Jackson <patrick@ivycat.com>
- * @version: 1.1.0
- * @since 1.1.1
+ * @version: 1.2.0
+ * @since 1.2.1
  * 
  */
 
@@ -115,11 +115,48 @@ class IC_Custom_Search_Shortcode_Handler {
     
     /**
      * 
+     * Perform functions when the ic-search-results shortcode is present.
+     * Adds a class to the body tag of the containing page.
+     * 
+     * @access public
+     * 
+     * @author: Patrick Jackson <patrick@ivycat.com>
+     * @version 1.0.0
+     * @since   1.2.0
+     */
+    static public function do_when_has_ic_search_results() {
+        if ( is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, 'ic-search-results') ){
+            // add has-ic-search-results body tag class
+            add_filter( 'body_class', 'body_class_has_ic_search_results' );
+        }
+        return $classes;
+    }
+    
+    /**
+     * 
+     * Add a class to the body tag indicating the presense of the Search Results
+     * shortcode
+     * 
+     * @access public
+     * @return  string  body tag class array with addition of shortcode class
+     * 
+     * @author: Patrick Jackson <patrick@ivycat.com>
+     * @version 1.0.0
+     * @since   1.2.0
+     */
+    static public function body_class_has_ic_search_results( $classes ){
+        $classes[] = 'has-ic-search-results';
+        return $classes;
+    }
+    
+    /**
+     * 
      * Uses the query inputs to retrieve the WP_Query object
      * 
      * @access private
      * @param string    $search_phrase  The words used to search the database for results
-     * @param array     $post_types     An array of strings, each of which is the slug for a post type
+     * @param array     $post_types     An array of strings, each of which is the 
+     *                                  slug for a post type
      * @return \WP_Query    The WP_Query object used to get the search results
      * 
      * @author: Patrick Jackson <patrick@ivycat.com>
