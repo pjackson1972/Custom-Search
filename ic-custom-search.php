@@ -5,14 +5,14 @@
  * Plugin URI: http://www.ivycat.com
  * Description: This plugin generates a custom search for the canned-fresh site
  * Author: Patrick Jackson <patrick@ivycat.com>
- * Version: 1.2.1
+ * Version: 1.2.2
  * Author URI: http://www.ivycat.com
  * Text Domain: custom-search
  * 
  * 
  * @category ic-custom-search
  * @author: Patrick Jackson <patrick@ivycat.com>
- * @version: 1.2.1
+ * @version: 1.2.2
  * 
  */
 

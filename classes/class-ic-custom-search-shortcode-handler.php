@@ -235,10 +235,11 @@ class IC_Custom_Search_Shortcode_Handler {
         $post_types = explode( ", ", $attributes['post_types'] );        
         
         // Generate the form HTML...
+        $search_terms = filter_input(INPUT_GET, "ics");
         $form = <<<"EOH"
 <form role="search" method="get" id="ics-search-form" class="ic-search-form" action="$url{$attributes['action_path']}"> 
 <label class="ic-search-phrase-label" for="ics">{$attributes['search_field_label']}</label>
-<input type="text" value="{$_GET['ics']}" name="ics" id="ics" />
+<input type="text" value="{$search_terms}" name="ics" id="ics" />
 EOH;
 
         foreach( $post_types as $post_type ){
